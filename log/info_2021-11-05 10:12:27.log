@@ -1,0 +1,262 @@
+10:12:32,INFO,Main page is succeed to request
+10:12:33,INFO,Succeded to find the element book appointment button
+10:12:35,INFO,Succeded to click book appointment button
+10:12:35,INFO,Looking for the element: accept terms checkbox
+10:12:36,INFO,Looking for the element: accept terms checkbox
+10:12:37,INFO,Succeded to find the element accept terms checkbox
+10:12:37,INFO,Succeded to click accept terms checkbox
+10:12:37,INFO,Succeded to find the element accept terms button
+10:12:37,INFO,Succeded to click accept terms button
+10:12:37,INFO,Looking for the element: Citizenship
+10:12:38,INFO,Looking for the element: Citizenship
+10:12:39,INFO,Looking for the element: Citizenship
+10:12:41,INFO,Looking for the element: Citizenship
+10:12:42,INFO,Succeded to find the element Citizenship
+10:12:43,INFO,Succeded to select value: 163
+10:12:43,INFO,Succeded to find the element Applications Count
+10:12:45,INFO,Succeded to select value: 1
+10:12:45,INFO,Succeded to find the element Family member
+10:12:46,INFO,Succeded to select value: 2
+10:12:46,INFO,Looking for the element: set visa group
+10:12:47,INFO,Succeded to find the element set visa group
+10:12:47,INFO,Succeded to click set visa group
+10:12:47,INFO,Looking for the element: set visa type
+10:12:48,INFO,Succeded to find the element set visa type
+10:12:48,INFO,Succeded to click set visa type
+10:12:48,INFO,Looking for the element: qualifiedSkilled
+10:12:49,INFO,Succeded to find the element qualifiedSkilled
+10:12:49,INFO,Succeded to click qualifiedSkilled
+10:12:49,INFO,Succeded to find the element next button
+10:12:49,INFO,waiting for the element:next button to be enabled
+10:12:50,INFO,waiting for the element:next button to be enabled
+10:12:51,INFO,waiting for the element:next button to be enabled
+10:12:52,INFO,Succeded to click next button
+10:12:52,INFO,Page is loading
+10:12:53,INFO,Page is loading
+10:12:54,INFO,Page is loading
+10:12:55,INFO,Page is loading
+10:12:56,INFO,Page is loading
+10:12:57,INFO,Page is loading
+10:12:58,INFO,Page is loading
+10:12:59,INFO,Page is loading
+10:13:00,INFO,No appointment, starting to process again in 10 seconds ...
+10:13:12,INFO,Main page is succeed to request
+10:13:13,INFO,Succeded to find the element book appointment button
+10:13:16,INFO,Succeded to click book appointment button
+10:13:16,INFO,Looking for the element: accept terms checkbox
+10:13:17,INFO,Succeded to find the element accept terms checkbox
+10:13:17,INFO,Succeded to click accept terms checkbox
+10:13:17,INFO,Succeded to find the element accept terms button
+10:13:17,INFO,Succeded to click accept terms button
+10:13:17,INFO,Looking for the element: Citizenship
+10:13:18,INFO,Looking for the element: Citizenship
+10:13:19,INFO,Looking for the element: Citizenship
+10:13:20,INFO,Looking for the element: Citizenship
+10:13:21,INFO,Looking for the element: Citizenship
+10:13:22,INFO,Succeded to find the element Citizenship
+10:13:23,INFO,Succeded to select value: 163
+10:13:23,INFO,Succeded to find the element Applications Count
+10:13:24,INFO,Succeded to select value: 1
+10:13:24,INFO,Succeded to find the element Family member
+10:13:26,INFO,Succeded to select value: 2
+10:13:26,INFO,Looking for the element: set visa group
+10:13:27,INFO,Succeded to find the element set visa group
+10:13:27,INFO,Succeded to click set visa group
+10:13:27,INFO,Looking for the element: set visa type
+10:13:28,INFO,Succeded to find the element set visa type
+10:13:28,INFO,Succeded to click set visa type
+10:13:28,INFO,Looking for the element: qualifiedSkilled
+10:13:29,INFO,Succeded to find the element qualifiedSkilled
+10:13:29,INFO,Succeded to click qualifiedSkilled
+10:13:29,INFO,Succeded to find the element next button
+10:13:29,INFO,waiting for the element:next button to be enabled
+10:13:30,INFO,waiting for the element:next button to be enabled
+10:13:31,INFO,waiting for the element:next button to be enabled
+10:13:32,INFO,Succeded to click next button
+10:13:32,INFO,Page is loading
+10:13:33,INFO,Page is loading
+10:13:34,INFO,Page is loading
+10:13:35,INFO,Page is loading
+10:13:36,INFO,Page is loading
+10:13:37,INFO,Page is loading
+10:13:38,INFO,Page is loading
+10:13:39,INFO,Page is loading
+10:13:40,INFO,No appointment, starting to process again in 10 seconds ...
+10:13:55,INFO,Main page is succeed to request
+10:13:56,INFO,Succeded to find the element book appointment button
+10:13:59,INFO,Succeded to click book appointment button
+10:13:59,INFO,Looking for the element: accept terms checkbox
+10:14:00,INFO,Succeded to find the element accept terms checkbox
+10:14:00,INFO,Succeded to click accept terms checkbox
+10:14:00,INFO,Succeded to find the element accept terms button
+10:14:00,INFO,Succeded to click accept terms button
+10:14:00,INFO,Looking for the element: Citizenship
+10:14:01,INFO,Looking for the element: Citizenship
+10:14:02,INFO,Looking for the element: Citizenship
+10:14:03,INFO,Looking for the element: Citizenship
+10:14:04,INFO,Looking for the element: Citizenship
+10:14:05,INFO,Looking for the element: Citizenship
+10:14:09,INFO,Looking for the element: Citizenship
+10:14:10,INFO,Looking for the element: Citizenship
+10:14:11,INFO,Looking for the element: Citizenship
+10:14:12,INFO,Looking for the element: Citizenship
+10:14:13,INFO,Looking for the element: Citizenship
+10:14:14,INFO,Looking for the element: Citizenship
+10:14:16,INFO,Looking for the element: Citizenship
+10:14:17,INFO,Looking for the element: Citizenship
+10:14:18,INFO,Looking for the element: Citizenship
+10:14:19,INFO,Looking for the element: Citizenship
+10:14:20,INFO,Looking for the element: Citizenship
+10:14:21,INFO,Succeded to find the element Citizenship
+10:14:22,INFO,Succeded to select value: 163
+10:14:22,INFO,Succeded to find the element Applications Count
+10:14:23,INFO,Succeded to select value: 1
+10:14:23,INFO,Succeded to find the element Family member
+10:14:24,INFO,Succeded to select value: 2
+10:14:24,INFO,Looking for the element: set visa group
+10:14:25,INFO,Succeded to find the element set visa group
+10:14:25,INFO,Succeded to click set visa group
+10:14:25,INFO,Looking for the element: set visa type
+10:14:26,INFO,Succeded to find the element set visa type
+10:14:26,INFO,Succeded to click set visa type
+10:14:26,INFO,Looking for the element: qualifiedSkilled
+10:14:27,INFO,Succeded to find the element qualifiedSkilled
+10:14:28,INFO,Succeded to click qualifiedSkilled
+10:14:28,INFO,Succeded to find the element next button
+10:14:28,INFO,waiting for the element:next button to be enabled
+10:14:29,INFO,waiting for the element:next button to be enabled
+10:14:30,INFO,waiting for the element:next button to be enabled
+10:14:31,INFO,waiting for the element:next button to be enabled
+10:14:32,INFO,Succeded to click next button
+10:14:32,INFO,Page is loading
+10:14:33,INFO,Page is loading
+10:14:34,INFO,Page is loading
+10:14:35,INFO,Page is loading
+10:14:36,INFO,Page is loading
+10:14:37,INFO,Page is loading
+10:14:38,INFO,Page is loading
+11:06:50,INFO,Page is loading
+11:06:51,INFO,Page is loading
+11:06:52,INFO,Page is loading
+11:06:53,INFO,Page is loading
+11:06:54,INFO,Page is loading
+11:06:55,INFO,Page is loading
+11:06:56,INFO,Page is loading
+11:06:57,INFO,Page is loading
+11:06:58,INFO,Page is loading
+11:06:59,INFO,Page is loading
+11:07:00,INFO,Page is loading
+11:07:01,INFO,Page is loading
+11:07:02,INFO,Page is loading
+11:07:03,INFO,Page is loading
+11:07:04,INFO,Page is loading
+11:07:05,INFO,Page is loading
+11:07:06,INFO,Page is loading
+11:07:07,INFO,Page is loading
+11:07:08,INFO,Page is loading
+11:07:09,INFO,Page is loading
+11:07:09,INFO,Failed to load the page withim limit
+11:07:11,INFO,Main page is succeed to request
+11:07:12,INFO,Succeded to find the element book appointment button
+11:07:15,INFO,Succeded to click book appointment button
+11:07:15,INFO,Looking for the element: accept terms checkbox
+11:07:16,INFO,Succeded to find the element accept terms checkbox
+11:07:16,INFO,Succeded to click accept terms checkbox
+11:07:16,INFO,Succeded to find the element accept terms button
+11:07:16,INFO,Succeded to click accept terms button
+11:07:16,INFO,Looking for the element: Citizenship
+11:07:17,INFO,Looking for the element: Citizenship
+11:07:18,INFO,Looking for the element: Citizenship
+11:07:19,INFO,Looking for the element: Citizenship
+11:07:20,INFO,Succeded to find the element Citizenship
+11:07:21,INFO,Succeded to select value: 163
+11:07:21,INFO,Succeded to find the element Applications Count
+11:07:22,INFO,Succeded to select value: 1
+11:07:22,INFO,Succeded to find the element Family member
+11:07:23,INFO,Succeded to select value: 2
+11:07:23,INFO,Looking for the element: set visa group
+11:07:24,INFO,Succeded to find the element set visa group
+11:07:25,INFO,Succeded to click set visa group
+11:07:25,INFO,Looking for the element: set visa type
+11:07:26,INFO,Succeded to find the element set visa type
+11:07:26,INFO,Succeded to click set visa type
+11:07:26,INFO,Looking for the element: qualifiedSkilled
+11:07:27,INFO,Succeded to find the element qualifiedSkilled
+11:07:27,INFO,Succeded to click qualifiedSkilled
+11:07:27,INFO,Succeded to find the element next button
+11:07:27,INFO,waiting for the element:next button to be enabled
+11:07:28,INFO,waiting for the element:next button to be enabled
+11:07:29,INFO,waiting for the element:next button to be enabled
+11:07:30,INFO,waiting for the element:next button to be enabled
+11:07:31,INFO,waiting for the element:next button to be enabled
+11:07:32,INFO,waiting for the element:next button to be enabled
+11:07:33,INFO,waiting for the element:next button to be enabled
+11:07:34,INFO,waiting for the element:next button to be enabled
+11:07:35,INFO,waiting for the element:next button to be enabled
+11:07:36,INFO,waiting for the element:next button to be enabled
+11:07:37,INFO,waiting for the element:next button to be enabled
+11:07:38,INFO,waiting for the element:next button to be enabled
+11:07:39,INFO,waiting for the element:next button to be enabled
+11:07:40,INFO,waiting for the element:next button to be enabled
+11:07:41,INFO,waiting for the element:next button to be enabled
+11:07:42,INFO,waiting for the element:next button to be enabled
+11:07:43,INFO,waiting for the element:next button to be enabled
+11:07:44,INFO,waiting for the element:next button to be enabled
+11:07:45,INFO,waiting for the element:next button to be enabled
+11:07:46,INFO,waiting for the element:next button to be enabled
+11:07:47,INFO,waiting for the element:next button to be enabled
+11:07:48,INFO,waiting for the element:next button to be enabled
+11:07:49,INFO,waiting for the element:next button to be enabled
+11:07:50,INFO,waiting for the element:next button to be enabled
+11:07:52,INFO,waiting for the element:next button to be enabled
+11:07:53,INFO,waiting for the element:next button to be enabled
+11:07:54,INFO,waiting for the element:next button to be enabled
+11:07:54,INFO,Failed to enable the element:next button within the limit
+11:07:57,INFO,Main page is succeed to request
+11:07:58,INFO,Succeded to find the element book appointment button
+11:08:00,INFO,Succeded to click book appointment button
+11:08:00,INFO,Looking for the element: accept terms checkbox
+11:08:01,INFO,Succeded to find the element accept terms checkbox
+11:08:02,INFO,Succeded to click accept terms checkbox
+11:08:02,INFO,Succeded to find the element accept terms button
+11:08:02,INFO,Succeded to click accept terms button
+11:08:02,INFO,Looking for the element: Citizenship
+11:08:03,INFO,Looking for the element: Citizenship
+11:08:04,INFO,Looking for the element: Citizenship
+11:08:05,INFO,Looking for the element: Citizenship
+11:08:06,INFO,Succeded to find the element Citizenship
+11:08:07,INFO,Succeded to select value: 163
+11:08:07,INFO,Succeded to find the element Applications Count
+11:08:08,INFO,Succeded to select value: 1
+11:08:08,INFO,Succeded to find the element Family member
+11:08:09,INFO,Succeded to select value: 2
+11:08:09,INFO,Looking for the element: set visa group
+11:08:10,INFO,Succeded to find the element set visa group
+11:08:10,INFO,Succeded to click set visa group
+11:08:10,INFO,Looking for the element: set visa type
+11:08:11,INFO,Succeded to find the element set visa type
+11:08:11,INFO,Succeded to click set visa type
+11:08:11,INFO,Looking for the element: qualifiedSkilled
+11:08:12,INFO,Succeded to find the element qualifiedSkilled
+11:08:13,INFO,Succeded to click qualifiedSkilled
+11:08:13,INFO,Succeded to find the element next button
+11:08:13,INFO,waiting for the element:next button to be enabled
+11:08:14,INFO,waiting for the element:next button to be enabled
+11:08:15,INFO,waiting for the element:next button to be enabled
+11:08:16,INFO,Succeded to click next button
+11:08:16,INFO,Page is loading
+11:08:17,INFO,Page is loading
+11:08:18,INFO,Page is loading
+11:08:19,INFO,Page is loading
+11:08:20,INFO,Page is loading
+11:08:21,INFO,Page is loading
+11:08:22,INFO,Page is loading
+11:08:23,INFO,No appointment, starting to process again in 10 seconds ...
+11:08:39,INFO,Main page is failed  to request
+11:08:41,INFO,Main page is succeed to request
+11:08:42,INFO,Succeded to find the element book appointment button
+11:08:45,INFO,Succeded to click book appointment button
+11:08:45,INFO,Looking for the element: accept terms checkbox
+11:08:46,INFO,Looking for the element: accept terms checkbox
+11:08:47,INFO,Looking for the element: accept terms checkbox
+11:08:48,INFO,Looking for the element: accept terms checkbox

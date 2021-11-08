@@ -7,10 +7,6 @@ from config import *
 from utils import *
 
 
-TIMEOUT = 10
-PAGE_TIMEOUT = 25
-
-
 def findElement(driver, elementXpath, elementName):
     pageTimer = 0
     while(1):
@@ -47,15 +43,18 @@ def clickElement(element, elementName):
             except(WebDriverException):
                 myLogger.info(f"Failed to reach webDriver")
         if(not element.is_enabled()):
-            myLogger.info(f"waiting for the element:{elementName} to be enabled")
+            myLogger.info(
+                f"waiting for the element:{elementName} to be enabled")
         if(pageTimer > PAGE_TIMEOUT):
-            myLogger.info(f"Failed to enable the element:{elementName} within the limit")
+            myLogger.info(
+                f"Failed to enable the element:{elementName} within the limit")
             return False
 
         pageTimer += 1
         time.sleep(1)
 
-def selectValue(element,elementName,elementValue):
+
+def selectValue(element, elementName, elementValue):
     pageTimer = 0
     while(1):
         try:
@@ -67,18 +66,21 @@ def selectValue(element,elementName,elementValue):
         except(WebDriverException):
             myLogger.info(f"Failed to reach webDriver")
         if(pageTimer > PAGE_TIMEOUT):
-            myLogger.info(f"Failed to enable the element:{elementName} within the limit")
+            myLogger.info(
+                f"Failed to enable the element:{elementName} within the limit")
             return False
         pageTimer += 1
         time.sleep(1)
 
-def findAndSelectElement(driver,elementXpath,elementName,elementValue):
+
+def findAndSelectElement(driver, elementXpath, elementName, elementValue):
     element = findElement(driver, elementXpath, elementName)
     time.sleep(1)
     if(element):
-        return selectValue(element, elementName,elementValue)
+        return selectValue(element, elementName, elementValue)
     else:
         return False
+
 
 def findAndClickElement(driver, elementXpath, elementName):
     element = findElement(driver, elementXpath, elementName)
@@ -125,7 +127,7 @@ def setCitizenship(driver):
     """
     elementXpath = '//*[@id="xi-sel-400"]'
     elementName = "Citizenship"
-    return findAndSelectElement(driver,elementXpath,elementName,"163")
+    return findAndSelectElement(driver, elementXpath, elementName, "163")
 
 
 def setApplicantsNumber(driver):
@@ -134,14 +136,13 @@ def setApplicantsNumber(driver):
     """
     elementXpath = '//*[@id="xi-sel-422"]'
     elementName = "Applications Count"
-    return findAndSelectElement(driver,elementXpath,elementName,"1")
+    return findAndSelectElement(driver, elementXpath, elementName, "1")
 
 
 def setFamily(driver):
     elementXpath = '//*[@id="xi-sel-427"]'
     elementName = "Family member"
-    return findAndSelectElement(driver,elementXpath,elementName,"2")
-
+    return findAndSelectElement(driver, elementXpath, elementName, "2")
 
 
 def setVisaGroup(driver):
@@ -187,6 +188,10 @@ def handleError(driver):
                 time.sleep(TIMEOUT)
                 return False
             if(driver.find_element_by_xpath(elementXpath)):
+                sourceHtml = driver.page_source
+                f = open("source-"+str(randint(1,100))+".html","w")
+                f.write(sourceHtml)
+                f.close
                 makeCall
                 myLogger.info("FOUND IT")
                 return True
@@ -196,7 +201,9 @@ def handleError(driver):
 
         except(NoSuchElementException, ElementNotInteractableException):
             myLogger.info("Page is loading")
-
+        except(WebDriverException):    
+           myLogger("Error on fiding the driver")
+           pass
         if(pageTimer > PAGE_TIMEOUT):
             myLogger.info("Failed to load the page withim limit")
             return False
@@ -207,7 +214,7 @@ def handleError(driver):
 
 def setDriver():
     op = webdriver.ChromeOptions()
-    #op.add_argument('--headless')
+    op.add_argument('--headless')
     driver = webdriver.Chrome(options=op)
 
     return driver
@@ -231,11 +238,15 @@ if __name__ == "__main__":
 
         if(not setCitizenship(driver)):
             continue
-        if(not setApplicantsNumber(driver)):continue
-        if(not setFamily(driver)):continue
+        if(not setApplicantsNumber(driver)):
+            continue
+        if(not setFamily(driver)):
+            continue
 
-        if(not setVisaGroup(driver)):continue
-        if(not setVisaType(driver)):continue
+        if(not setVisaGroup(driver)):
+            continue
+        if(not setVisaType(driver)):
+            continue
 
         if(not setQualifiedSkilledWithAE(driver)):
             continue
@@ -248,5 +259,5 @@ if __name__ == "__main__":
 
         time.sleep(TIMEOUT)
 
-## To do
+# To do
 # After selecting make sure it is done by reading back again the value citizenship example sometimes doesn't select Turkey. Repeat it until is succeeds.

@@ -5,8 +5,12 @@ else
 fi
 TERMIN_ROOT=$(pwd)
 echo "">>~/.bashrc
-echo "# Environment variables for Termin project" >> ~/.bashrc
-echo "export TERMIN_ROOT=$TERMIN_ROOT" >> ~/.bashrc
+echo "# Environment variables for Termin project" >> ~/.zshrc
+echo "export TERMIN_ROOT=$TERMIN_ROOT" >> ~/.zshrc
+
+sudo mv chromedriver /usr/local/bin
+
+
 
 
 rm -r venv

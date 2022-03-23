@@ -75,7 +75,7 @@ def selectValue(element, elementName, elementValue):
 
 def findAndSelectElement(driver, elementXpath, elementName, elementValue):
     element = findElement(driver, elementXpath, elementName)
-    time.sleep(1)
+    time.sleep(2)
     if(element):
         return selectValue(element, elementName, elementValue)
     else:
@@ -84,7 +84,7 @@ def findAndSelectElement(driver, elementXpath, elementName, elementValue):
 
 def findAndClickElement(driver, elementXpath, elementName):
     element = findElement(driver, elementXpath, elementName)
-    time.sleep(1)
+    time.sleep(2)
     if(element):
         return clickElement(element, elementName)
     else:
@@ -152,7 +152,7 @@ def setVisaGroup(driver):
 
 
 def setVisaType(driver):
-    elementXpath = '/html/body/div[2]/div[2]/div[4]/div[2]/form/div[2]/div/div[2]/div[8]/div[1]/div[2]/div[1]/fieldset/div[9]/div[1]/div[1]/div[1]/div[6]/div/div[3]'
+    elementXpath = '//*[@id="inner-163-0-1"]/div/div[3]/label'
     elementName = "set visa type"
     return findAndClickElement(driver, elementXpath, elementName)
 
@@ -192,7 +192,7 @@ def handleError(driver):
                 f = open("source-"+str(randint(1,100))+".html","w")
                 f.write(sourceHtml)
                 f.close
-                makeCall
+                #makeCall
                 myLogger.info("FOUND IT")
                 return True
             else:

@@ -187,7 +187,7 @@ def handleError(driver):
                     f"No appointment, starting to process again in {TIMEOUT} seconds ...")
                 time.sleep(TIMEOUT)
                 return False
-            elif(pageTimer > PAGE_TIMEOUT):
+            if(pageTimer > PAGE_TIMEOUT):
                 myLogger.info("Failed to load the page withim limit")
                 return False
             else:

@@ -187,26 +187,25 @@ def handleError(driver):
                     f"No appointment, starting to process again in {TIMEOUT} seconds ...")
                 time.sleep(TIMEOUT)
                 return False
-            if(driver.find_element_by_xpath(elementXpath)):
+            elif(pageTimer > PAGE_TIMEOUT):
+                myLogger.info("Failed to load the page withim limit")
+                return False
+            else:
                 sourceHtml = driver.page_source
                 f = open("source-"+str(randint(1,100))+".html","w")
                 f.write(sourceHtml)
                 f.close
-                #makeCall
+                makeCall
                 myLogger.info("FOUND IT")
                 return True
-            else:
-                myLogger.info(
-                    "-----------------------------------------------------------------------------------------------Nothing show up yet")
-
         except(NoSuchElementException, ElementNotInteractableException):
             myLogger.info("Page is loading")
+        except(UnexpectedAlertPresentException):
+            myLogger.warn("Someproblem happend ")
+            return True
         except(WebDriverException):    
-           myLogger("Error on fiding the driver")
+           myLogger("Error on finding the driver")
            pass
-        if(pageTimer > PAGE_TIMEOUT):
-            myLogger.info("Failed to load the page withim limit")
-            return False
 
         time.sleep(1)
         pageTimer += 1
@@ -214,7 +213,7 @@ def handleError(driver):
 
 def setDriver():
     op = webdriver.ChromeOptions()
-    op.add_argument('--headless')
+    #op.add_argument('--headless')
     driver = webdriver.Chrome(options=op)
 
     return driver

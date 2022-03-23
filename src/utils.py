@@ -13,6 +13,3 @@ def makeCall(number=number_yilmaz):
         to=number, from_="+17029450859", url="http://demo.twilio.com/docs/voice.xml")
 
     print(call.sid)
-
-
-

@@ -9,15 +9,12 @@ echo "# Environment variables for Termin project" >> ~/.zshrc
 echo "export TERMIN_ROOT=$TERMIN_ROOT" >> ~/.zshrc
 
 sudo mv chromedriver /usr/local/bin
-
-
-
+sudo chmod 777 /usr/local/bin/chromedriver
+mkdir log
 
 rm -r venv
 sleep 5
 python3 -m venv venv
 source venv/bin/activate
 which python3
-pip3 install selenium==3.14.0
-pip3 install twilio
-pip3 install autopep8
+pip3 install -r requirements.txt

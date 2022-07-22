@@ -1,24 +1,34 @@
-from selenium import webdriver
-from selenium.webdriver.support.ui import Select
 import time
-from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException, StaleElementReferenceException, UnexpectedAlertPresentException, WebDriverException
 from datetime import datetime
+
+from selenium import webdriver
+from selenium.common.exceptions import (
+    ElementNotInteractableException,
+    NoSuchElementException,
+    StaleElementReferenceException,
+    UnexpectedAlertPresentException,
+    WebDriverException,
+)
+from selenium.webdriver.chrome.webdriver import WebDriver as Chrome
+from selenium.webdriver.support.ui import Select
+
 from config import *
+from constants import *
 from utils import *
 
 
 def findElement(driver, elementXpath, elementName):
     pageTimer = 0
-    while(1):
+    while 1:
         try:
             element = driver.find_element_by_xpath(elementXpath)
             myLogger.info(f"Succeded to find the element {elementName}")
             return element
-        except(NoSuchElementException, ElementNotInteractableException):
+        except (NoSuchElementException, ElementNotInteractableException):
             myLogger.info(f"Looking for the element: {elementName}")
-        except(WebDriverException):
+        except (WebDriverException):
             myLogger.info(f"Failed to reach webDriver")
-        if(pageTimer > PAGE_TIMEOUT):
+        if pageTimer > PAGE_TIMEOUT:
             myLogger.info("Failed to load the page withim limit")
             return False
 
@@ -28,26 +38,24 @@ def findElement(driver, elementXpath, elementName):
 
 def clickElement(element, elementName):
     pageTimer = 0
-    while(1):
-        if(element.is_enabled()):
+    while 1:
+        if element.is_enabled():
             try:
                 element.click()
                 myLogger.info(f"Succeded to click {elementName}")
                 return True
-            except(ElementNotInteractableException):
+            except (ElementNotInteractableException):
                 myLogger.info(f"Element:{elementName} is not Interactable yet")
                 pass
-            except(WebDriverException):
+            except (WebDriverException):
                 myLogger.info(f"Failed to reach webDriver")
 
-            except(WebDriverException):
+            except (WebDriverException):
                 myLogger.info(f"Failed to reach webDriver")
-        if(not element.is_enabled()):
-            myLogger.info(
-                f"waiting for the element:{elementName} to be enabled")
-        if(pageTimer > PAGE_TIMEOUT):
-            myLogger.info(
-                f"Failed to enable the element:{elementName} within the limit")
+        if not element.is_enabled():
+            myLogger.info(f"waiting for the element:{elementName} to be enabled")
+        if pageTimer > PAGE_TIMEOUT:
+            myLogger.info(f"Failed to enable the element:{elementName} within the limit")
             return False
 
         pageTimer += 1
@@ -56,18 +64,17 @@ def clickElement(element, elementName):
 
 def selectValue(element, elementName, elementValue):
     pageTimer = 0
-    while(1):
+    while 1:
         try:
             Select(element).select_by_value(elementValue)
             myLogger.info(f"Succeded to select value: {elementValue}")
             return True
-        except(NoSuchElementException, ElementNotInteractableException):
+        except (NoSuchElementException, ElementNotInteractableException):
             myLogger.info(f"Looking for the element: {elementName}")
-        except(WebDriverException):
+        except (WebDriverException):
             myLogger.info(f"Failed to reach webDriver")
-        if(pageTimer > PAGE_TIMEOUT):
-            myLogger.info(
-                f"Failed to enable the element:{elementName} within the limit")
+        if pageTimer > PAGE_TIMEOUT:
+            myLogger.info(f"Failed to enable the element:{elementName} within the limit")
             return False
         pageTimer += 1
         time.sleep(1)
@@ -76,7 +83,7 @@ def selectValue(element, elementName, elementValue):
 def findAndSelectElement(driver, elementXpath, elementName, elementValue):
     element = findElement(driver, elementXpath, elementName)
     time.sleep(2)
-    if(element):
+    if element:
         return selectValue(element, elementName, elementValue)
     else:
         return False
@@ -85,7 +92,7 @@ def findAndSelectElement(driver, elementXpath, elementName, elementValue):
 def findAndClickElement(driver, elementXpath, elementName):
     element = findElement(driver, elementXpath, elementName)
     time.sleep(2)
-    if(element):
+    if element:
         return clickElement(element, elementName)
     else:
         return False
@@ -122,7 +129,7 @@ def clickAcceptTermsButton(driver):
 
 
 def setCitizenship(driver):
-    """"
+    """ "
     set the country from the dropdown menu
     """
     elementXpath = '//*[@id="xi-sel-400"]'
@@ -131,7 +138,7 @@ def setCitizenship(driver):
 
 
 def setApplicantsNumber(driver):
-    """"
+    """ "
     set the Number of applicants who need a residence title (inluding foreign spouse and children)
     """
     elementXpath = '//*[@id="xi-sel-422"]'
@@ -158,7 +165,13 @@ def setVisaType(driver):
 
 
 def setBlueCard(driver):
-    elementXpath = '//*[@id="SERVICEWAHL_EN163-0-1-1-324661"]'
+    elementXpath = '//*[@id="SERVICEWAHL_EN163-0-1-1-324659"]'
+    elementName = "click blue card"
+    return findAndClickElement(driver, elementXpath, elementName)
+
+
+def setWorkingPermit(driver):
+    elementXpath = '//*[@id="SERVICEWAHL_EN163-0-1-1-324659"]'
     elementName = "click blue card"
     return findAndClickElement(driver, elementXpath, elementName)
 
@@ -176,36 +189,53 @@ def clickNext(driver):
     return findAndClickElement(driver, elementXpath, elementName)
 
 
-def handleError(driver):
+def handleError(driver: Chrome):
     # Check Error Message
     pageTimer = 0
-    elementXpath = '/html/body/div[2]/div[2]/div[4]/div[2]/form/div[2]/div/div[2]/div/div[1]/div[3]/div[1]/fieldset/legend'
-    while(1):
+    elementXpath = (
+        "/html/body/div[2]/div[2]/div[4]/div[2]/form/div[2]/div/div[2]/div/div[1]/div[3]/div[1]/fieldset/legend"
+    )
+    while 1:
         try:
-            if(driver.find_element_by_class_name("errorMessage")):
-                myLogger.info(
-                    f"No appointment, starting to process again in {TIMEOUT} seconds ...")
-                time.sleep(TIMEOUT)
-                return False
-            if(pageTimer > PAGE_TIMEOUT):
+            loader = driver.find_element_by_id("j_idt440")
+            hidden = loader.get_attribute("aria-hidden")
+            # Loader animation is there
+            if hidden == "false":
+                raise NoSuchElementException("Loader not completed yet")
+
+            element = driver.find_element_by_class_name("antcl_wizardSteps")
+            date_selection = element.find_element_by_xpath(".//ul/li[3]")
+            elem_class = date_selection.get_attribute("class")
+
+            # If the 3rd element in the top navigation bar is active
+            if pageTimer > PAGE_TIMEOUT:
                 myLogger.info("Failed to load the page withim limit")
+                return False
+            elif elem_class != "antcl_active":
+                myLogger.info(f"No appointment, starting to process again in {TIMEOUT} seconds ...")
+                time.sleep(TIMEOUT)
                 return False
             else:
                 sourceHtml = driver.page_source
-                f = open("source-"+str(randint(1,100))+".html","w")
+                url = driver.current_url
+                import webbrowser
+
+                webbrowser.open(url)
+                f = open("source-" + str(randint(1, 100)) + ".html", "w")
                 f.write(sourceHtml)
                 f.close
-                makeCall
+                makeCall()
                 myLogger.info("FOUND IT")
                 return True
-        except(NoSuchElementException, ElementNotInteractableException):
+        except (NoSuchElementException, ElementNotInteractableException) as e:
+            print(e)
             myLogger.info("Page is loading")
-        except(UnexpectedAlertPresentException):
+        except (UnexpectedAlertPresentException):
             myLogger.warn("Someproblem happend ")
             return True
-        except(WebDriverException):    
-           myLogger("Error on finding the driver")
-           pass
+        except (WebDriverException):
+            myLogger.error("Error on finding the driver")
+            pass
 
         time.sleep(1)
         pageTimer += 1
@@ -213,7 +243,7 @@ def handleError(driver):
 
 def setDriver():
     op = webdriver.ChromeOptions()
-    #op.add_argument('--headless')
+    # op.add_argument("--headless")
     driver = webdriver.Chrome(options=op)
 
     return driver
@@ -222,38 +252,38 @@ def setDriver():
 if __name__ == "__main__":
 
     driver = setDriver()
-    while(1):
-        driver.close()
+    while 1:
+        driver.quit()
         driver = setDriver()
 
-        if(not getHomePage(driver)):
+        if not getHomePage(driver):
             continue
-        if(not clickBookAppointmentButton(driver)):
+        if not clickBookAppointmentButton(driver):
             continue
-        if(not clickAcceptTermsCheckbox(driver)):
+        if not clickAcceptTermsCheckbox(driver):
             continue
-        if(not clickAcceptTermsButton(driver)):
-            continue
-
-        if(not setCitizenship(driver)):
-            continue
-        if(not setApplicantsNumber(driver)):
-            continue
-        if(not setFamily(driver)):
+        if not clickAcceptTermsButton(driver):
             continue
 
-        if(not setVisaGroup(driver)):
+        if not setCitizenship(driver):
             continue
-        if(not setVisaType(driver)):
+        if not setApplicantsNumber(driver):
             continue
-
-        if(not setQualifiedSkilledWithAE(driver)):
-            continue
-
-        if(not clickNext(driver)):
+        if not setFamily(driver):
             continue
 
-        if(not handleError(driver)):
+        if not setVisaGroup(driver):
+            continue
+        if not setVisaType(driver):
+            continue
+
+        if not setBlueCard(driver):
+            continue
+
+        if not clickNext(driver):
+            continue
+
+        if not handleError(driver):
             continue
 
         time.sleep(TIMEOUT)

@@ -170,6 +170,12 @@ def setBlueCard(driver):
     return findAndClickElement(driver, elementXpath, elementName)
 
 
+def setWorkingPermit(driver):
+    elementXpath = '//*[@id="SERVICEWAHL_EN163-0-1-1-324659"]'
+    elementName = "click blue card"
+    return findAndClickElement(driver, elementXpath, elementName)
+
+
 def setQualifiedSkilledWithAE(driver):
     # Click to Book appointment
     elementXpath = '//*[@id="SERVICEWAHL_EN163-0-1-1-329328"]'
@@ -237,7 +243,7 @@ def handleError(driver: Chrome):
 
 def setDriver():
     op = webdriver.ChromeOptions()
-    op.add_argument("--headless")
+    # op.add_argument("--headless")
     driver = webdriver.Chrome(options=op)
 
     return driver

@@ -204,14 +204,13 @@ def handleError(driver: Chrome):
                 raise NoSuchElementException("Loader not completed yet")
 
             element = driver.find_element_by_class_name("antcl_wizardSteps")
-            date_selection = element.find_element_by_xpath(".//ul/li[3]")
-            elem_class = date_selection.get_attribute("class")
+            stage = element.find_element_by_xpath(".//ul/li[2]/span").text
 
             # If the 3rd element in the top navigation bar is active
             if pageTimer > PAGE_TIMEOUT:
                 myLogger.info("Failed to load the page withim limit")
                 return False
-            elif elem_class != "antcl_active":
+            elif stage == "Service selection":
                 myLogger.info(f"No appointment, starting to process again in {TIMEOUT} seconds ...")
                 time.sleep(TIMEOUT)
                 return False

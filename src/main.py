@@ -26,7 +26,8 @@ def findElement(driver, elementXpath, elementName):
             return element
         except (NoSuchElementException, ElementNotInteractableException):
             myLogger.info(f"Looking for the element: {elementName}")
-        except (WebDriverException):
+        except WebDriverException as e:
+            print(e)
             myLogger.info(f"Failed to reach webDriver")
         if pageTimer > PAGE_TIMEOUT:
             myLogger.info("Failed to load the page withim limit")
@@ -134,7 +135,7 @@ def setCitizenship(driver):
     """
     elementXpath = '//*[@id="xi-sel-400"]'
     elementName = "Citizenship"
-    return findAndSelectElement(driver, elementXpath, elementName, "163")
+    return findAndSelectElement(driver, elementXpath, elementName, "160")
 
 
 def setApplicantsNumber(driver):
@@ -159,13 +160,13 @@ def setVisaGroup(driver):
 
 
 def setVisaType(driver):
-    elementXpath = '//*[@id="inner-163-0-1"]/div/div[3]/label'
+    elementXpath = '//*[@id="inner-160-0-1"]/div/div[3]/label'
     elementName = "set visa type"
     return findAndClickElement(driver, elementXpath, elementName)
 
 
 def setBlueCard(driver):
-    elementXpath = '//*[@id="SERVICEWAHL_EN163-0-1-1-324659"]'
+    elementXpath = '//*[@id="SERVICEWAHL_EN160-0-1-1-324659"]'
     elementName = "click blue card"
     return findAndClickElement(driver, elementXpath, elementName)
 
@@ -220,10 +221,12 @@ def handleError(driver: Chrome):
                 import webbrowser
 
                 webbrowser.open(url)
-                f = open("source-" + str(randint(1, 100)) + ".html", "w")
+                
+                f = open(os.environ['TERMIN_ROOT'] + "/log/" + str(randint(1, 100)) + ".html", "w")
                 f.write(sourceHtml)
                 f.close
-                makeCall()
+                myLogger.info("Page is loading")
+                make_call()
                 myLogger.info("FOUND IT")
                 return True
         except (NoSuchElementException, ElementNotInteractableException) as e:
@@ -231,7 +234,7 @@ def handleError(driver: Chrome):
             myLogger.info("Page is loading")
         except (UnexpectedAlertPresentException):
             myLogger.warn("Someproblem happend ")
-            return True
+            return False
         except (WebDriverException):
             myLogger.error("Error on finding the driver")
             pass
@@ -242,7 +245,8 @@ def handleError(driver: Chrome):
 
 def setDriver():
     op = webdriver.ChromeOptions()
-    # op.add_argument("--headless")
+    #op.add_argument("--headless")
+    op.add_argument("--disable-dev-shm-usage")
     driver = webdriver.Chrome(options=op)
 
     return driver
@@ -250,9 +254,7 @@ def setDriver():
 
 if __name__ == "__main__":
 
-    driver = setDriver()
-    while 1:
-        driver.quit()
+    while True:
         driver = setDriver()
 
         if not getHomePage(driver):
@@ -284,7 +286,10 @@ if __name__ == "__main__":
 
         if not handleError(driver):
             continue
+        else:
+            exit()
 
+        driver.quit()
         time.sleep(TIMEOUT)
 
 # To do

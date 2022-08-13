@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+  termin:
+    build: .
+    restart: on-failure
+    image:
+        "atarax/termin"
+    environment:
+      - "PYTHONUNBUFFERED=1"
+    env_file:
+      - .env
+    volumes:
+      - type: bind
+        source: ./log
+        target: /var/log
+
+
